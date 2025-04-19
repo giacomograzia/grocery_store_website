@@ -1,969 +1,620 @@
-/* Reset & Base */
+/* Reset & Base Styles */
+/* Set the base styles for the HTML and body elements */
 html,
 body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f8f4f0;
-    display: flex;
-    flex-direction: column;
+    height: 100%; /* Ensure the height covers the full viewport */
+    margin: 0; /* Remove default margin */
+    font-family: Arial, Helvetica, sans-serif; /* Set a clean, sans-serif font */
+    background-color: #f8f4f0; /* Light background color for the page */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
 }
 
+/* Main Content Styles */
 .main-content {
-    flex: 1;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
+    flex: 1; /* Allow the main content to grow and fill available space */
+    width: 100%; /* Full width */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px; /* Add padding around the content */
 }
 
+/* Wide Layout */
 .main-content--wide {
-    max-width: 1200px;
+    max-width: 1200px; /* Limit the width to 1200px */
 }
 
+/* Narrow Layout */
 .main-content--narrow {
-    max-width: 900px;
-    padding: 40px 20px;
+    max-width: 900px; /* Limit the width to 900px */
+    padding: 40px 20px; /* Add extra padding for a more compact layout */
 }
 
 
 /* Header */
 header {
-    background-color: #314401;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
+    background-color: #314401; /* Dark green background */
+    display: flex; /* Flexbox layout for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and navbar */
+    padding: 10px 20px; /* Padding around the header */
 }
 
+/* Logo */
 .logo {
-    max-height: 75px;
-    height: auto !important;
-    width: auto;
-    border-radius: 5px;
+    max-height: 75px; /* Maximum height for the logo */
+    height: auto !important; /* Maintain aspect ratio */
+    width: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for the logo */
 }
-
 
 /* Navbar */
 .navbar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: flex; /* Flexbox layout for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Space between navigation links */
 }
 
+/* Navbar Links */
+/* Styles for navigation links and dropdown buttons */
 .navbar a,
 .dropbtn {
-    font-size: 16px;
-    color: white;
-    text-decoration: none;
-    padding: 14px 16px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    border-radius: 5px;
+    font-size: 16px; /* Font size for links */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    padding: 14px 16px; /* Padding around links */
+    border: none; /* Remove border */
+    background: none; /* Transparent background */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
 }
 
+/* Hover Effect for Navbar Links */
+/* Change background color on hover */
 .navbar a:hover,
 .dropbtn:hover {
-    background-color: #94a84e;
+    background-color: #94a84e; /* Light green background */
 }
 
 /* Dropdown */
+/* Styles for dropdown menus */
 .dropdown {
-    position: relative;
+    position: relative; /* Position relative for absolute child positioning */
 }
 
+/* Dropdown Content */
+/* Hidden dropdown menu content */
 .dropdown-content,
 .dropdown-content.show {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    z-index: 1000;
+    display: none; /* Initially hidden */
+    position: absolute; /* Position relative to parent */
+    top: 100%; /* Position below the parent */
+    left: 0; /* Align to the left */
+    background-color: #f9f9f9; /* Light background color */
+    min-width: 160px; /* Minimum width for dropdown */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1000; /* Ensure dropdown appears above other elements */
 }
 
+/* Show Dropdown on Hover */
+/* Display dropdown content when hovering over parent */
 .dropdown:hover .dropdown-content,
 .dropdown-content.show {
-    display: block;
+    display: block; /* Make dropdown visible */
 }
 
+/* Dropdown Links */
+/* Styles for links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background 0.2s;
+    color: black; /* Black text color */
+    padding: 12px 16px; /* Padding around links */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Block layout for full clickable area */
+    transition: background 0.2s; /* Smooth background transition */
 }
 
+/* Hover Effect for Dropdown Links */
+/* Change background and text color on hover */
 .dropdown-content a:hover {
-    background-color: #e7e7e7;
-    color: #314401;
+    background-color: #e7e7e7; /* Light gray background */
+    color: #314401; /* Dark green text color */
 }
 
+/* Active State for Dropdown Links */
+/* Change background color when active */
 .dropdown-content a:active {
-    background-color: #d3d3d3;
+    background-color: #d3d3d3; /* Darker gray background */
 }
 
 /* Submenu */
+/* Parent element for submenu, used to position the submenu */
 .submenu-parent {
     position: relative;
 }
 
+/* Submenu styles */
 .submenu {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 0;
-    min-width: 160px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    z-index: 1001;
+    display: none; /* Initially hidden */
+    position: absolute; /* Positioned relative to parent */
+    left: 100%; /* Align submenu to the right of parent */
+    top: 0; /* Align submenu to the top of parent */
+    min-width: 160px; /* Minimum width for submenu */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    border-radius: 4px; /* Rounded corners */
+    z-index: 1001; /* Ensure submenu appears above other elements */
 }
 
+/* Show submenu on hover */
 .submenu-parent:hover .submenu {
-    display: block;
+    display: block; /* Make submenu visible */
 }
 
+/* Styles for category links and submenu links */
 .category-link,
 .submenu a {
-    display: block;
-    padding: 12px 16px;
-    color: black;
-    text-decoration: none;
-    transition: background 0.2s;
+    display: block; /* Block layout for full clickable area */
+    padding: 12px 16px; /* Padding around links */
+    color: black; /* Black text color */
+    text-decoration: none; /* Remove underline */
+    transition: background 0.2s; /* Smooth background transition */
 }
 
+/* Hover effect for category and submenu links */
 .category-link:hover,
 .submenu a:hover {
-    background-color: #eaeaea;
-    color: #314401;
+    background-color: #eaeaea; /* Light gray background */
+    color: #314401; /* Dark green text color */
 }
 
+/* Active state for category and submenu links */
 .category-link.active,
 .submenu a.active {
-    font-weight: bold;
-    background-color: #ddecd2;
-    color: #314401;
+    font-weight: bold; /* Bold text */
+    background-color: #ddecd2; /* Light green background */
+    color: #314401; /* Dark green text color */
 }
 
 /* Search */
+/* Wrapper for search bar */
 .search-bar {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: 20px;
+    position: relative; /* Position relative for absolute child positioning */
+    display: flex; /* Flexbox layout for alignment */
+    align-items: center; /* Center items vertically */
+    gap: 8px; /* Space between input and button */
+    margin-left: 20px; /* Add left margin */
 }
 
+/* Search input field */
 .search-bar input[type="text"] {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    width: 200px;
+    padding: 8px 12px; /* Padding inside input */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    width: 200px; /* Fixed width */
 }
 
+/* Search button */
 .search-bar button {
-    background-color: #94a84e;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
+    background-color: #94a84e; /* Light green background */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    padding: 8px 12px; /* Padding inside button */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
+/* Hover effect for search button */
 .search-bar button:hover {
-    background-color: #7f8f3f;
+    background-color: #7f8f3f; /* Darker green background */
 }
 
+/* Search hints dropdown */
 .search-hints {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 77%;
-    margin-top: 4px;
-    padding: 8px;
-    z-index: 1000;
-    display: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    position: absolute; /* Positioned relative to parent */
+    top: 100%; /* Position below the parent */
+    left: 0; /* Align to the left */
+    background-color: #fff; /* White background */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    width: 77%; /* Fixed width */
+    margin-top: 4px; /* Add margin above */
+    padding: 8px; /* Padding inside dropdown */
+    z-index: 1000; /* Ensure dropdown appears above other elements */
+    display: none; /* Initially hidden */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: left; /* Align text to the left */
 }
 
+/* Styles for search hints text */
 .search-hints p {
-    margin: 0 0 4px;
-    font-size: 14px;
-    color: #888;
+    margin: 0 0 4px; /* Add bottom margin */
+    font-size: 14px; /* Font size */
+    color: #888; /* Gray text color */
 }
 
+/* Styles for search hints list */
 .search-hints ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    list-style: none; /* Remove bullet points */
 }
 
+/* Styles for search hints list items */
 .search-hints li {
-    padding: 6px;
-    font-size: 14px;
-    cursor: pointer;
+    padding: 6px; /* Padding inside list item */
+    font-size: 14px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
+/* Hover effect for search hints list items */
 .search-hints li:hover {
-    background-color: #f0f0f0;
-}
-
-/* Main Layout */
-/*
-.main-content {
-    flex: 1;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Breadcrumb */
-.breadcrumb-wrapper {
-    max-width: 1200px;
-    margin: 40px auto 10px;
-    padding: 12px 20px;
-    background-color: #f7f9f5;
-    border-radius: 8px;
-    border: 1px solid #dde3d0;
-}
-
-.breadcrumb {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 18px;
-    color: #314401;
-}
-
-.breadcrumb-link {
-    color: #314401;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.breadcrumb-link:hover {
-    color: #94a84e;
-}
-
-.breadcrumb-separator {
-    color: #bbb;
-    font-size: 16px;
-}
-
-.breadcrumb-current {
-    font-weight: 600;
-    color: #222;
-}
-
-/* Product Grid */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px; /* Space between columns */
-    padding: 20px 0;
-    justify-content: center;
-}
-
-.product {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 85%;
-    opacity: 0;
-    animation: fadeSlideUp 0.6s ease-out forwards;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.product:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-}
-
-.product-image-wrapper {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.product-image {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-    transition: transform 0.4s ease;
-}
-
-.product:hover .product-image {
-    transform: scale(1.05);
-}
-
-.product-name {
-    font-size: 18px;
-    font-weight: bold;
-    color: #314401;
-    margin: 10px 0;
-}
-
-.product-price {
-    font-size: 16px;
-    color: #555;
-    margin: 5px 0;
-}
-
-.product-quantity {
-    font-size: 14px;
-    color: #777;
-    margin: 5px 0;
-}
-
-/* Quantity Selector */
-.quantity-wrapper {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: 6px;
-    margin: 10px 0;
-}
-
-.quantity-input {
-    width: 52px;
-    height: 40px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    text-align: center;
-    appearance: textfield;
-    line-height: 40px;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-.quantity-input::-webkit-inner-spin-button,
-.quantity-input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.quantity-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    font-weight: bold;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #eaeaea;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    transition: background-color 0.2s;
-    line-height: 1;
-}
-
-.quantity-btn:hover {
-    background-color: #d5d5d5;
-}
-
-/* Add to Cart */
-.add-to-cart {
-    background-color: #314401;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    margin-top: auto;
-}
-
-.add-to-cart:hover {
-    background-color: #94a84e;
-}
-
-.add-to-cart.disabled {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-/* Empty Category Animation */
-.empty-category {
-    animation: fadeZoomIn 0.5s ease-out forwards;
-}
-
-/* Cart Page */
-/* .main-content {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 20px;
-} 
-*/
-
-.cart-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
-}
-
-.cart-table th,
-.cart-table td {
-    border: 1px solid #ccc;
-    padding: 12px;
-    text-align: center;
-}
-
-.cart-table th {
-    background-color: #f2f2f2;
-}
-
-.cart-total {
-    text-align: right;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.cart-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-}
-
-.cart-buttons button {
-    padding: 10px 20px;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.btn-update {
-    background-color: #94a84e;
-    color: white;
-}
-
-.btn-order {
-    background-color: #314401;
-    color: white;
-}
-
-.btn-clear {
-    background-color: #999;
-    color: white;
-}
-
-.btn-disabled {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-}
-
-.empty-cart-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 70vh;
-}
-
-.empty-cart {
-    text-align: center;
-}
-
-.empty-cart img {
-    max-width: 280px;
-    margin-bottom: 30px;
-}
-
-.empty-cart h2 {
-    color: #314401;
-    font-size: 26px;
-    margin-bottom: 10px;
-}
-
-.empty-cart p {
-    margin-bottom: 20px;
-}
-
-.add-to-cart {
-    background-color: #314401;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-.add-to-cart:hover {
-    background-color: #94a84e;
-}
-
-.cart-item {
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cart-item-info {
-    flex: 2;
-}
-
-.cart-item-controls {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: flex-end;
-}
-
-.quantity-input {
-    width: 60px;
-    padding: 6px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.remove-link {
-    color: #c0392b;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.cart-summary {
-    background: #fdfdfb;
-    border-radius: 8px;
-    padding: 25px;
-    margin-top: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    text-align: center;
-}
-
-
-@keyframes fadeInTop {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.add-to-cart {
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.add-to-cart:hover {
-    transform: translateY(-2px);
-    background-color: #94a84e !important;
-}
-
-@keyframes fadeSlideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.empty-cart {
-    animation: fadeSlideUp 0.8s ease-out both;
-}
-
-html,
-body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.page-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.main-content {
-    flex: 1;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-.page-wrapper>.main-content {
-    padding: 0 16px;
-}
-
-
-@media (max-width: 768px) {
-    .main-content>div {
-        flex-direction: column !important;
-    }
+    background-color: #f0f0f0; /* Light gray background */
 }
 
 /* Footer */
+/* Styles for the footer section */
 footer {
-    background-color: #314401;
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
-    width: 100%;
+    background-color: #314401; /* Dark green background */
+    color: white; /* White text color */
+    text-align: center; /* Center align text */
+    padding: 30px 20px; /* Padding around the footer */
+    width: 100%; /* Full width */
 }
 
+/* Footer Navbar */
+/* Grid layout for footer navigation links */
 footer .navbar {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    gap: 6px 40px;
-    max-width: 400px;
-    margin: 0 auto 20px;
+    display: grid; /* Use grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    justify-content: center; /* Center the grid */
+    gap: 6px 40px; /* Space between rows and columns */
+    max-width: 400px; /* Limit the width */
+    margin: 0 auto 20px; /* Center horizontally and add bottom margin */
 }
 
+/* Footer Navbar Links */
+/* Styles for links in the footer */
 footer .navbar a {
-    color: white;
-    font-size: 13px;
-    text-decoration: none;
-    padding: 2px 0;
+    color: white; /* White text color */
+    font-size: 13px; /* Smaller font size */
+    text-decoration: none; /* Remove underline */
+    padding: 2px 0; /* Padding around links */
 }
 
+/* Footer Text */
+/* Styles for additional footer text */
 .footer-text {
-    font-size: 12px;
-    opacity: 0.7;
+    font-size: 12px; /* Smaller font size */
+    opacity: 0.7; /* Slightly transparent text */
 }
 
 /* Checkout */
+/* Base styles for the checkout page */
 html,
 body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f4f0;
-    display: flex;
-    flex-direction: column;
+    height: 100%; /* Full height */
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Set font */
+    background-color: #f8f4f0; /* Light background color */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
 }
 
+/* Page Wrapper */
+/* Wrapper for the entire page content */
 .page-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    flex: 1; /* Allow content to grow and fill available space */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
 }
 
+/* Checkout Container */
+/* Container for the checkout content */
 .checkout-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 20px 40px;
-    /* top | sides | bottom */
+    flex: 1; /* Allow container to grow and fill available space */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 20px 20px 40px; /* Padding around the container */
 }
 
+/* Checkout Card */
+/* Styles for the checkout card */
 .checkout-card {
-    width: 100%;
-    max-width: 800px;
-    background: transparent;
-    padding: 30px;
-    border-radius: 12px;
-    animation: fadeSlideUp 0.6s ease;
+    width: 100%; /* Full width */
+    max-width: 800px; /* Limit the width */
+    background: transparent; /* Transparent background */
+    padding: 30px; /* Padding inside the card */
+    border-radius: 12px; /* Rounded corners */
+    animation: fadeSlideUp 0.6s ease; /* Slide-up animation */
 }
 
+/* Checkout Card Heading */
+/* Styles for the heading inside the checkout card */
 .checkout-card h2 {
-    text-align: center;
-    font-size: 28px;
-    color: #314401;
-    margin-bottom: 20px;
+    text-align: center; /* Center align text */
+    font-size: 28px; /* Larger font size */
+    color: #314401; /* Dark green text color */
+    margin-bottom: 20px; /* Add bottom margin */
 }
 
+/* Form Row */
+/* Layout for form rows */
 .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 20px; /* Space between form groups */
 }
 
+/* Form Group */
+/* Wrapper for individual form fields */
 .form-group {
-    flex: 1;
-    min-width: 240px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+    flex: 1; /* Allow group to grow */
+    min-width: 240px; /* Minimum width */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+    margin-bottom: 20px; /* Add bottom margin */
 }
 
+/* Form Labels */
+/* Styles for form field labels */
 label {
-    font-weight: bold;
-    color: #314401;
-    margin-bottom: 6px;
+    font-weight: bold; /* Bold text */
+    color: #314401; /* Dark green text color */
+    margin-bottom: 6px; /* Add bottom margin */
 }
 
+/* Input and Select Fields */
+/* Styles for input and select elements */
 input,
 select {
-    padding: 12px;
-    font-size: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: rgba(255, 255, 255, 0.9);
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+    padding: 12px; /* Padding inside fields */
+    font-size: 15px; /* Font size */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 6px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    transition: border 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
+/* Focus State */
+/* Styles for input and select fields on focus */
 input:focus,
 select:focus {
-    border-color: #94a84e;
-    box-shadow: 0 0 0 3px rgba(148, 168, 78, 0.2);
-    outline: none;
+    border-color: #94a84e; /* Light green border */
+    box-shadow: 0 0 0 3px rgba(148, 168, 78, 0.2); /* Subtle shadow */
+    outline: none; /* Remove default outline */
 }
 
+/* Select Dropdown */
+/* Additional styles for select elements */
 select {
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20fill='gray'%20class='bi%20bi-chevron-down'%20viewBox='0%200%2016%2016'%3E%3Cpath%20fill-rule='evenodd'%20d='M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 14px;
+    appearance: none; /* Remove default dropdown arrow */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20fill='gray'%20class='bi%20bi-chevron-down'%20viewBox='0%200%2016%2016'%3E%3Cpath%20fill-rule='evenodd'%20d='M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708z'/%3E%3C/svg%3E"); /* Custom dropdown arrow */
+    background-repeat: no-repeat; /* Prevent repeating */
+    background-position: right 10px center; /* Position arrow */
+    background-size: 14px; /* Size of arrow */
 }
 
+/* Error Message */
+/* Styles for error messages */
 .error-msg {
-    color: #c0392b;
-    font-size: 13px;
-    margin-top: 4px;
-    display: none;
+    color: #c0392b; /* Red text color */
+    font-size: 13px; /* Smaller font size */
+    margin-top: 4px; /* Add top margin */
+    display: none; /* Initially hidden */
 }
 
+/* Form Actions */
+/* Layout for form action buttons */
 .form-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between buttons */
+    align-items: center; /* Center align items */
+    margin-top: 30px; /* Add top margin */
+    gap: 20px; /* Space between buttons */
+    flex-wrap: wrap; /* Allow wrapping */
 }
 
+/* Form Button */
+/* Styles for primary form buttons */
 .form-button {
-    background-color: #314401;
-    color: white;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    background-color: #314401; /* Dark green background */
+    color: white; /* White text color */
+    padding: 12px 18px; /* Padding inside button */
+    border: none; /* Remove border */
+    border-radius: 6px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.2s ease; /* Smooth transition */
 }
 
+/* Hover State for Form Button */
+/* Change background color on hover */
 .form-button:hover {
-    background-color: #94a84e;
+    background-color: #94a84e; /* Light green background */
 }
 
+/* Back Button */
+/* Styles for secondary back button */
 .back-button {
-    background-color: #ccc;
-    color: #333;
-    padding: 12px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
+    background-color: #ccc; /* Light gray background */
+    color: #333; /* Dark gray text color */
+    padding: 12px 18px; /* Padding inside button */
+    border-radius: 6px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Font size */
+    transition: background-color 0.2s ease; /* Smooth transition */
 }
 
+/* Hover State for Back Button */
+/* Change background color on hover */
 .back-button:hover {
-    background-color: #bbb;
+    background-color: #bbb; /* Darker gray background */
 }
 
+/* Fade Slide Up Animation */
+/* Smooth slide-up animation */
 @keyframes fadeSlideUp {
     from {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 0; /* Start with no opacity */
+        transform: translateY(30px); /* Start below the position */
     }
 
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* End at the original position */
     }
 }
 
 
 /* Order Confirmation */
+/* Base styles for the body */
 body {
-    background-color: #f8f4f0;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: #f8f4f0; /* Light background color */
+    font-family: Arial, sans-serif; /* Set font */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 
+/* Confirmation Section */
+/* Wrapper for the order confirmation content */
 .confirmation-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 60px 20px;
-    animation: fadeSlideUp 0.6s ease;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align items */
+    padding: 60px 20px; /* Add padding around the section */
+    animation: fadeSlideUp 0.6s ease; /* Slide-up animation */
 }
 
+/* Confirmation Section Image */
+/* Styles for the confirmation image */
 .confirmation-section img {
-    max-width: 120px;
-    margin-bottom: 20px;
+    max-width: 120px; /* Limit the width */
+    margin-bottom: 20px; /* Add bottom margin */
 }
 
+/* Confirmation Section Heading */
+/* Styles for the heading in the confirmation section */
 .confirmation-section h2 {
-    font-size: 28px;
-    color: #314401;
-    margin-bottom: 10px;
-    text-align: center;
+    font-size: 28px; /* Larger font size */
+    color: #314401; /* Dark green text color */
+    margin-bottom: 10px; /* Add bottom margin */
+    text-align: center; /* Center align text */
 }
 
+/* Confirmation Section Paragraph */
+/* Styles for the paragraph in the confirmation section */
 .confirmation-section p {
-    margin-bottom: 30px;
-    color: #333;
-    text-align: center;
-    font-size: 16px;
+    margin-bottom: 30px; /* Add bottom margin */
+    color: #333; /* Dark gray text color */
+    text-align: center; /* Center align text */
+    font-size: 16px; /* Font size */
 }
 
+/* Order Summary Box */
+/* Wrapper for the order summary list */
 .order-summary-box {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px;
-    width: 100%;
-    max-width: 400px;
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0 0 20px; /* Add bottom margin */
+    width: 100%; /* Full width */
+    max-width: 400px; /* Limit the width */
 }
 
+/* Order Summary List Items */
+/* Styles for individual items in the order summary */
 .order-summary-box li {
-    background-color: #fff;
-    margin-bottom: 8px;
-    padding: 10px 15px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    font-size: 15px;
+    background-color: #fff; /* White background */
+    margin-bottom: 8px; /* Add bottom margin */
+    padding: 10px 15px; /* Add padding inside items */
+    border-radius: 6px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light gray border */
+    font-size: 15px; /* Font size */
 }
 
+/* Summary Totals */
+/* Styles for the totals section in the order summary */
 .summary-totals {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #314401;
-    text-align: center;
+    margin-top: 10px; /* Add top margin */
+    font-size: 16px; /* Font size */
+    color: #314401; /* Dark green text color */
+    text-align: center; /* Center align text */
 }
 
+/* Back Home Button */
+/* Styles for the back-to-home button */
 .back-home {
-    display: block;
-    margin-top: 40px;
-    padding: 14px 24px;
-    background-color: #314401;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
+    display: block; /* Block layout for full clickable area */
+    margin-top: 40px; /* Add top margin */
+    padding: 14px 24px; /* Add padding inside button */
+    background-color: #314401; /* Dark green background */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 6px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    transition: background-color 0.2s ease; /* Smooth transition */
 }
 
+/* Hover State for Back Home Button */
+/* Change background color on hover */
 .back-home:hover {
-    background-color: #94a84e;
+    background-color: #94a84e; /* Light green background */
 }
 
+/* Fade Slide Up Animation */
+/* Smooth slide-up animation */
 @keyframes fadeSlideUp {
     from {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 0; /* Start with no opacity */
+        transform: translateY(30px); /* Start below the position */
     }
 
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* End at the original position */
     }
 }
 
+/* Base Styles for HTML and Body */
+/* Ensure full height and flex layout */
 html,
 body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+    height: 100%; /* Full height */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
 }
 
+/* Body Flex Behavior */
+/* Allow body to grow and fill available space */
 body {
-    flex: 1;
+    flex: 1; /* Allow body to grow */
 }
 
+/* Order Card */
+/* Styles for the order card container */
 .order-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Add padding inside the card */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center align items */
 }
 
-
-/* Animations */
+/* Fade Zoom In Animation */
+/* Smooth fade and zoom-in animation */
 @keyframes fadeZoomIn {
     0% {
-        opacity: 0;
-        transform: scale(0.95) translateY(20px);
+        opacity: 0; /* Start with no opacity */
+        transform: scale(0.95) translateY(20px); /* Start smaller and below */
     }
 
     100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-@keyframes fadeSlideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Fully visible */
+        transform: scale(1) translateY(0); /* End at original size and position */
     }
 }
