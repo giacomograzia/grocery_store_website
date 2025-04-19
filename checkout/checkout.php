@@ -32,7 +32,7 @@ foreach ($_SESSION['cart'] as $key => $details) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">¯
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">

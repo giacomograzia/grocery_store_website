@@ -110,7 +110,7 @@ include 'templates/header.php';
 </div>
 
 <!-- PRODUCT GRID -->
-<div class="main-content">
+<div class="main-content main-content--wide">
     <section class="product-grid">
         <?php if ($productResult && $productResult->num_rows > 0): ?>
             <?php $index = 0; ?>
