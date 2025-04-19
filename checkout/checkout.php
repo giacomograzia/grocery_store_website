@@ -56,13 +56,13 @@ foreach ($_SESSION['cart'] as $key => $details) {
                     <!-- Name fields -->
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="first_name">First Name</label>
+                            <label for="first_name">First Name <span style="color: red;">*</span></label>
                             <input type="text" name="first_name" id="first_name" required>
                             <div class="error-msg" id="firstNameError">Please enter your first name.</div>
                         </div>
 
                         <div class="form-group">
-                            <label for="surname">Surname</label>
+                            <label for="surname">Surname <span style="color: red;">*</span></label>
                             <input type="text" name="surname" id="surname" required>
                             <div class="error-msg" id="surnameError">Please enter your surname.</div>
                         </div>
@@ -70,7 +70,7 @@ foreach ($_SESSION['cart'] as $key => $details) {
 
                     <!-- Street address -->
                     <div class="form-group">
-                        <label for="street">Street Address</label>
+                        <label for="street">Street Address <span style="color: red;">*</span></label>
                         <input type="text" name="street" id="street" required>
                         <div class="error-msg" id="streetError">Please enter your street address.</div>
                     </div>
@@ -78,13 +78,13 @@ foreach ($_SESSION['cart'] as $key => $details) {
                     <!-- City and State -->
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="city">City / Suburb</label>
+                            <label for="city">City / Suburb <span style="color: red;">*</span></label>
                             <input type="text" name="city" id="city" required>
                             <div class="error-msg" id="cityError">Please enter your city or suburb.</div>
                         </div>
 
                         <div class="form-group">
-                            <label for="state">State / Territory</label>
+                            <label for="state">State / Territory <span style="color: red;">*</span></label>
                             <select name="state" id="state" required>
                                 <option value="">Select State</option>
                                 <option value="NSW">NSW</option>
@@ -103,7 +103,7 @@ foreach ($_SESSION['cart'] as $key => $details) {
 
                     <!-- Mobile number -->
                     <div class="form-group">
-                        <label for="mobile">Australian Mobile Number</label>
+                        <label for="mobile">Australian Mobile Number <span style="color: red;">*</span></label>
                         <input type="text" name="mobile" id="mobile" required>
                         <div class="error-msg" id="mobileError">
                             Enter a valid Australian mobile number (e.g. 04XXXXXXXX or +614XXXXXXXX).
@@ -112,10 +112,14 @@ foreach ($_SESSION['cart'] as $key => $details) {
 
                     <!-- Email -->
                     <div class="form-group">
-                        <label for="email">Email Address</label>
+                        <label for="email">Email Address <span style="color: red;">*</span></label>
                         <input type="email" name="email" id="email" required>
-                        <div class="error-msg" id="emailError">Please enter a valid email address.</div>
+                        <div class="error-msg" id="emailError"> Please enter a valid email address.</div>
                     </div>
+
+                    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                        <span style="color: red;">*</span> Required Information.
+                    </p>
 
                     <!-- Form actions: back + submit -->
                     <div class="form-actions">
@@ -123,6 +127,7 @@ foreach ($_SESSION['cart'] as $key => $details) {
                         <button type="submit" class="form-button">Place Order</button>
                     </div>
                 </form>
+
             </div>
         </div>
 

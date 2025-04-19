@@ -11,6 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['add_to_cart'] === '1') {
     $unitQuantity = trim($_POST['unit_quantity']);
     $quantity = intval($_POST['quantity']);
     $productKey = $productName . ', ' . $unitQuantity;
+    $image = trim($_POST['image_']);
+
+
 
     $_SESSION['cart'] ??= [];
 
@@ -21,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['add_to_cart'] === '1') {
             'name' => $productName,
             'unit_quantity' => $unitQuantity,
             'price' => $unitPrice,
-            'quantity' => $quantity
+            'quantity' => $quantity,
+            'image' => $image
         ];
     }
 
@@ -151,6 +155,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['add_to_cart'] === '1') {
                                 <input type="hidden" name="unit_price" value="<?php echo $product['unit_price']; ?>">
                                 <input type="hidden" name="unit_quantity"
                                     value="<?php echo htmlspecialchars($product['unit_quantity']); ?>">
+                                <input type="hidden" name="image_" value="<?php echo htmlspecialchars($product['image_']); ?>">
+
 
                                 <div class="quantity-wrapper">
                                     <button type="button" onclick="adjustQuantity(this, -1)" class="quantity-btn">−</button>
@@ -158,9 +164,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['add_to_cart'] === '1') {
                                     <button type="button" onclick="adjustQuantity(this, 1)" class="quantity-btn">+</button>
                                 </div>
 
-
                                 <button type="submit" class="add-to-cart" style="margin-top: 10px;">Add to Cart</button>
                             </form>
+
                         <?php endif; ?>
                     </div>
                 <?php endwhile; ?>

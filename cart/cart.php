@@ -2,7 +2,10 @@
 session_start();
 $cart = $_SESSION['cart'] ?? [];
 $total = 0;
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +17,7 @@ $total = 0;
 </head>
 
 <body>
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/grocery_store/templates/header_simple.php'; ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/grocery_store/templates/header_simple.php'; ?>
 
     <div class="page-wrapper">
 
@@ -32,24 +35,25 @@ $total = 0;
                 </h2>
                 <?php if (!empty($_SESSION['error'])): ?>
                     <div style="
-                background-color: #fdecea;
-                color: #c0392b;
-                padding: 16px 20px;
-                margin-top: 20px;
-                border: 1px solid #f5c6cb;
-                border-radius: 8px;
-                font-size: 15px;
-                max-width: 800px;
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            ">
-                        <?= htmlspecialchars($_SESSION['error']) ?>
+            background-color: #fdecea;
+            color: #c0392b;
+            padding: 16px 20px;
+            margin-top: 20px;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            font-size: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        ">
+                        <?= strip_tags($_SESSION['error'], '<strong>') ?>
                     </div>
                     <?php unset($_SESSION['error']); ?>
                 <?php endif; ?>
             </div>
+
         <?php endif; ?>
 
 
@@ -89,14 +93,26 @@ $total = 0;
                                 $total += $itemTotal;
                                 ?>
                                 <div
-                                    style="background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; animation: slideUp 0.3s ease;">
-                                    <div style="flex: 2;">
+                                    style="background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; gap: 20px; align-items: center; animation: slideUp 0.3s ease;">
+
+                                    <!-- IMAGE -->
+                                    <div
+                                        style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
+                                        <img src="/grocery_store/images/<?php echo htmlspecialchars($details['image']); ?>"
+                                            alt="<?php echo htmlspecialchars($details['name']); ?>"
+                                            style="max-width: 100%; max-height: 100%; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));">
+                                    </div>
+
+                                    <!-- PRODUCT INFO -->
+                                    <div style="flex: 2; display: flex; flex-direction: column; justify-content: center;">
                                         <strong style="font-size: 18px;"><?php echo htmlspecialchars($name); ?></strong>
                                         <p style="margin: 4px 0;">$<?php echo number_format($details['price'], 2); ?> each</p>
                                         <p style="margin: 4px 0;">Total: $<?php echo number_format($itemTotal, 2); ?></p>
                                     </div>
+
+                                    <!-- CONTROLS -->
                                     <div
-                                        style="flex: 1; display: flex; align-items: center; gap: 10px; justify-content: flex-end;">
+                                        style="flex: 1; display: flex; align-items: center; gap: 5px; justify-content: flex-end;">
                                         <input type="number" name="quantities[<?php echo $name; ?>]"
                                             value="<?php echo $details['quantity']; ?>" min="1"
                                             style="width: 60px; padding: 6px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px;">
@@ -104,6 +120,8 @@ $total = 0;
                                             style="color: #c0392b; text-decoration: none; font-size: 14px;">Remove</a>
                                     </div>
                                 </div>
+
+
                             <?php endforeach; ?>
 
                             <!-- UPDATE BUTTON (inside form) -->
@@ -123,8 +141,19 @@ $total = 0;
 
                             <!-- PLACE ORDER FORM -->
                             <form action="/grocery_store/checkout/checkout.php" method="POST" style="width: 100%;">
-                                <button type="submit" class="add-to-cart" style="width: 100%;">Proceed to Checkout</button>
+                                <button type="submit" class="add-to-cart"
+                                    style="width: 100%; <?php echo !empty($_SESSION['stock_error']) ? 'background-color: #ccc; color: #666; cursor: not-allowed;' : ''; ?>"
+                                    <?php echo !empty($_SESSION['stock_error']) ? 'disabled' : ''; ?>>
+                                    Proceed to Checkout
+                                </button>
                             </form>
+
+                            <?php if (!empty($_SESSION['stock_error'])): ?>
+                                <p style="color: #c0392b; font-size: 14px; margin-top: 10px; text-align: center;">
+                                    Please reduce item quantities and update your cart before checking out.
+                                </p>
+                            <?php endif; ?>
+
 
                             <!-- CLEAR CART FORM -->
                             <form action="clear_cart.php" method="POST" style="width: 100%;">
@@ -143,6 +172,10 @@ $total = 0;
         <?php include '../templates/footer.php'; ?>
 
     </div>
+
+    <?php unset($_SESSION['stock_error']); ?>
+
 </body>
 
 </html>
+

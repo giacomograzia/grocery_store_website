@@ -36,10 +36,12 @@ foreach ($cart as $item) {
 
     // If stock is not sufficient, redirect back with error
     if (!$product || $product['in_stock'] < $desiredQty) {
-        $_SESSION['error'] = "Sorry, '$productName ($unitQuantity)' is no longer available in the requested quantity.";
+        $_SESSION['stock_error'] = true;
+        $_SESSION['error'] = "Sorry, <strong>$productName ($unitQuantity)</strong> is no longer available in the requested quantity.";
         header('Location: ../cart/cart.php');
         exit;
     }
+
 }
 
 // Update product quantities in database
@@ -57,11 +59,11 @@ foreach ($cart as $item) {
 // Store delivery form info in session for order confirmation
 $_SESSION['form_data'] = [
     'first_name' => $_POST['first_name'],
-    'surname'    => $_POST['surname'],
-    'email'      => $_POST['email'],
-    'street'     => $_POST['street'],
-    'city'       => $_POST['city'],
-    'state'      => $_POST['state']
+    'surname' => $_POST['surname'],
+    'email' => $_POST['email'],
+    'street' => $_POST['street'],
+    'city' => $_POST['city'],
+    'state' => $_POST['state']
 ];
 
 // Store cart summary temporarily for display on success page
