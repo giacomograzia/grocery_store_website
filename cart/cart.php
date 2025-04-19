@@ -2,10 +2,7 @@
 session_start();
 $cart = $_SESSION['cart'] ?? [];
 $total = 0;
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
